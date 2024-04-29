@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficas de Deserción Escolar y Universidades en Colombia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            width: 800px;
+            height: 400px;
+            max-width: 100%;
+            max-height: 100%;
+            margin-bottom: 20px;
+        }
+        .btn-container {
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <!-- Incluir Chart.js desde un CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Gráficas de Deserción Escolar y Universidades en Colombia</h1>
+
+        <canvas id="desercionChart"></canvas>
+
+        <canvas id="universidadesChart"></canvas>
+
+        <canvas id="carrerasChart"></canvas>
+
+        <div class="btn-container">
+            <button class="btn" onclick="goBack()">Volver</button>
+        </div>
+    </div>
+
+    <script>
+        var desercionData = {
+            "Bogotá": 4.2,
+            "Medellín": 3.5,
+            "Cali": 4.1,
+            "Barranquilla": 3.8,
+            "Montería": 4.0,
+            "Santa Marta": 3.6,
+            "Ibagué": 3.9,
+            "Armenia": 3.4,
+            "Sincelejo": 4.2,
+            "Pasto": 3.7,
+            "Villavicencio": 3.9,
+            "Cartagena": 3.6
+        };
+
+        var universidadesData = {
+            "Bogotá": 25,
+            "Medellín": 20,
+            "Cali": 18,
+            "Barranquilla": 15,
+            "Montería": 12,
+            "Santa Marta": 10,
+            "Ibagué": 8,
+            "Armenia": 6,
+            "Sincelejo": 5,
+            "Pasto": 4,
+            "Villavicencio": 3,
+            "Cartagena": 2
+        };
+
+        var carrerasData = {
+            "Bogotá": 100,
+            "Medellín": 85,
+            "Cali": 75,
+            "Barranquilla": 60,
+            "Montería": 50,
+            "Santa Marta": 40,
+            "Ibagué": 35,
+            "Armenia": 30,
+            "Sincelejo": 25,
+            "Pasto": 20,
+            "Villavicencio": 15,
+            "Cartagena": 10
+        };
+
+        var desercionCtx = document.getElementById('desercionChart').getContext('2d');
+        var desercionChart = new Chart(desercionCtx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(desercionData),
+                datasets: [{
+                    label: 'Tasa de Deserción Escolar (%)',
+                    data: Object.values(desercionData),
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        var universidadesCtx = document.getElementById('universidadesChart').getContext('2d');
+        var universidadesChart = new Chart(universidadesCtx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(universidadesData),
+                datasets: [{
+                    label: 'Número de Universidades',
+                    data: Object.values(universidadesData),
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        var carrerasCtx = document.getElementById('carrerasChart').getContext('2d');
+        var carrerasChart = new Chart(carrerasCtx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(carrerasData),
+                datasets: [{
+                    label: 'Número de Carreras',
+                    data: Object.values(carrerasData),
+                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                    borderColor: 'rgba(255, 159, 64, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
+
