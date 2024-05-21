@@ -9,19 +9,20 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(100deg, #b9a4e4, #6f61a8); /* Fondo degradado en morado */
         }
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente blanco */
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
             text-align: center;
             margin-bottom: 20px;
+            color: #3c046a; /* Color de texto azul */
         }
         table {
             width: 100%;
@@ -45,16 +46,17 @@
         }
         .btn {
             padding: 10px 20px;
-            background-color: #007bff;
+            background-color: #a174cc; /* Morado */
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
             text-decoration: none;
+            transition: background-color 0.3s ease;
         }
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #7a55a0; /* Cambio de color al hacer hover */
         }
     </style>
 </head>
@@ -67,6 +69,7 @@
                 <th>Ubicación</th>
                 <th>Deserción</th>
                 <th>Oferta Académica</th>
+                <th>Costo de Matrícula</th>
             </tr>
             {% for result in results %}
             <tr>
@@ -74,6 +77,7 @@
                 <td>{{ result["Ubicacion"] }}</td>
                 <td>{{ result["Desercion"] }}</td>
                 <td>{{ result["Oferta Academica"] }}</td>
+                <td>{{ result["Costo de Matricula"] }}</td>
             </tr>
             {% endfor %}
         </table>

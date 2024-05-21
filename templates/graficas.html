@@ -9,20 +9,20 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #b9a4e4, #6f61a8); /* Fondo degradado en morado */
         }
         .container {
             max-width: 1000px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente blanco */
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
             text-align: center;
             margin-bottom: 30px;
-            color: #007bff;
+            color: #3c046a;
         }
         canvas {
             display: block;
@@ -39,16 +39,23 @@
         .btn {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #007bff;
+            background-color: #a174cc; /* Morado */
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
             text-decoration: none;
+            transition: background-color 0.3s ease;
         }
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #7a55a0; /* Cambio de color al hacer hover */
+        }
+        .description {
+            text-align: center;
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 20px;
         }
     </style>
     <!-- Incluir Chart.js desde un CDN -->
@@ -58,10 +65,22 @@
     <div class="container">
         <h1>Gráficas de Deserción Escolar y Universidades en Colombia</h1>
 
+        <div class="description">
+            <h2>Gráfica de Tasa de Deserción de Educación Superior por Ciudad</h2>
+            <p> La tasa de deserción en Colombia varía significativamente entre ciudades, siendo las más afectadas Sincelejo (4.5%), Montería (4%), Santa Marta (3.5%) y Pasto (3%), mientras que Bogotá (1%), Medellín (0.5%), Armenia (0.5%) e Ibagué (0.5%) presentan las tasas más bajas. Esta disparidad se observa principalmente entre las regiones de la costa Caribe y el interior del país. A pesar de una leve tendencia a la baja en los últimos años, la deserción escolar sigue siendo un problema preocupante, especialmente en ciertas regiones, lo que requiere la implementación de políticas públicas enfocadas en la inversión en educación temprana, el apoyo a estudiantes de bajos recursos, la mejora de la calidad educativa en zonas rurales, la orientación vocacional y el seguimiento a graduados. </p>
+        </div>
         <canvas id="desercionChart"></canvas>
 
+        <div class="description">
+            <h2>Gráfica de Número de Universidades por Ciudad</h2>
+            <p> La distribución de las universidades en Colombia presenta una marcada desigualdad, concentrando la mayor cantidad de instituciones en las principales ciudades: Bogotá (25), Medellín (15) y Cali (10). En contraste, ciudades como Villavicencio, Pasto, Sincelejo y Armenia cuentan con apenas una universidad cada una. Esta disparidad en la oferta educativa exige la implementación de políticas públicas que incentiven la creación de universidades en regiones con menor acceso, brinden apoyo financiero a las instituciones privadas y promuevan la educación virtual como alternativa para ampliar las oportunidades de educación superior en todo el país.</p>
+        </div>
         <canvas id="universidadesChart"></canvas>
 
+        <div class="description">
+            <h2>Gráfica de Número de Carreras por Ciudad</h2>
+            <p> La distribución de las carreras universitarias en Colombia presenta una marcada desigualdad, concentrando la mayor cantidad de opciones en Bogotá (470), Medellín (280) y Cali (180). Ciudades como Montería, Villavicencio, Pasto y Sincelejo, por el contrario, cuentan con apenas 20 a 30 carreras cada una. Esta disparidad en la oferta educativa exige medidas urgentes para ampliar las oportunidades de acceso a la educación superior en todo el país y atender las necesidades del mercado laboral. </p>
+        </div>
         <canvas id="carrerasChart"></canvas>
 
         <div class="btn-container">
@@ -192,4 +211,3 @@
     </script>
 </body>
 </html>
-

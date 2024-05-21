@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de Universidades Colombianas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(100deg, #b9a4e4, #6f61a8); /* Fondo degradado en morado claro */
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente blanco */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #3c046a;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        select:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        input[type="submit"], .btn-graficas, .btn-volver {
+            width: 70%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+            background-color: #a174cc; /* Morado claro */
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover, .btn-graficas:hover, .btn-volver:hover {
+            background-color: #7a55a0; /* Cambio de color al hacer hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/" method="post">
+            <h1>Búsqueda de Universidades Colombianas</h1>
+            <label for="location">Ubicación:</label>
+            <select id="location" name="location">
+                <option value="">Seleccionar ubicación</option>
+                {% for location in locations %}
+                <option value="{{ location }}">{{ location }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="academic_offer">Oferta Académica:</label>
+            <select id="academic_offer" name="academic_offer">
+                <option value="">Seleccionar oferta académica</option>
+                {% for academic_offer in academic_offers %}
+                <option value="{{ academic_offer }}">{{ academic_offer }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Buscar">
+        </form>
+        <form action="/" method="get">
+            <button type="submit" class="btn-volver">Volver</button>
+        </form>
+    </div>
+</body>
+</html>

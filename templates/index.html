@@ -3,101 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Búsqueda de Universidades Colombianas</title>
+    <title>Universo Informado</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-image: url('https://cdn.dribbble.com/users/3671336/screenshots/6646593/jelisa_1to1px_animation3.gif'); /* Fondo relacionado con universidades */
+            background-size: cover;
+            background-position: center center;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
         }
         .container {
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6); /* Fondo semi-transparente blanco */
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative; /* Necesario para el posicionamiento absoluto de los botones */
         }
         h1 {
-            text-align: center;
+            color: #3c046a;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
             margin-bottom: 30px;
-            color: #007bff;
+            color: #333;
         }
-        form {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        select:focus {
-            outline: none;
-            border-color: #007bff;
-        }
-        input[type="submit"], .btn-graficas {
-            width: 100%;
-            padding: 10px;
+        .btn {
+            width: 200px; /* Ancho fijo para los botones */
+            padding: 15px;
             border: none;
             border-radius: 5px;
+            background:  #a174cc ; /* Degradado de azul */
             color: #fff;
+            font-size: 18px;
+            text-align: center;
             cursor: pointer;
-            font-size: 16px;
-            margin-bottom: 10px;
+            margin: 10px auto; /* Margen para separar los botones */
+            display: block;
+            transition: background-color 0.3s ease;
         }
-        input[type="submit"] {
-            background-color: #007bff;
-        }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-        .btn-graficas {
-            background-color: #28a745;
-        }
-        .btn-graficas:hover {
-            background-color: #218838;
+        .btn:hover {
+            background: #775397; /* Cambio de color al hacer hover */
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Búsqueda de Universidades Colombianas</h1>
-        <form action="/" method="post">
-            <label for="location">Ubicación:</label>
-            <select id="location" name="location">
-                <option value="">Seleccionar ubicación</option>
-                {% for location in locations %}
-                <option value="{{ location }}">{{ location }}</option>
-                {% endfor %}
-            </select>
-
-            <label for="academic_offer">Oferta Académica:</label>
-            <select id="academic_offer" name="academic_offer">
-                <option value="">Seleccionar oferta académica</option>
-                {% for academic_offer in academic_offers %}
-                <option value="{{ academic_offer }}">{{ academic_offer }}</option>
-                {% endfor %}
-            </select>
-
-            <input type="submit" value="Buscar">
-        </form>
-        <form action="/graficas" method="get">
-            <button type="submit" class="btn-graficas">Gráficas</button>
-        </form>
-        <form action="/opiniones" method="get">
-            <button type="submit" class="btn-graficas">Opiniones de Estudiantes</button>
-        </form>
+        <h1>Universo Informado</h1>
+        <p>Decisiones Universitarias con Datos</p>
+          <p>Bienvenido a nuestra plataforma de búsqueda de universidades colombianas. Aquí puedes encontrar información sobre universidades, carreras y más.</p>
+        <button class="btn" onclick="submitForm()">Búsqueda de Universidades</button>
+        <button class="btn" onclick="window.location.href='/graficas'">Gráficas</button>
+        <button class="btn" onclick="window.location.href='/opiniones'">Opiniones de Estudiantes</button>
+        <button class="btn" onclick="window.location.href='/universidades'">Las Mejores Universidades</button>
+        <button class="btn" onclick="window.location.href='/perfil'">Qué Debes Saber</button>
     </div>
+
+    <form id="searchForm" action="/search" method="get" style="display: none;"></form>
+
+    <script>
+        function submitForm() {
+            document.getElementById("searchForm").submit();
+        }
+    </script>
 </body>
 </html>
