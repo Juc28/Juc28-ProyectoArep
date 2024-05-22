@@ -61,4 +61,4 @@ def search_universities(location, academic_offer):
     return results.to_dict("records")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0')
