@@ -31,7 +31,7 @@ def perfil():
 
 @app.route("/universidades", methods=["GET"])
 def universidades():
-    return render_template("universidades.html")
+    return render_template("Universidades.html")
 @app.route("/search", methods=["GET", "POST"])
 def search():
     # Convertir todos los valores a cadenas de texto antes de ordenarlos
