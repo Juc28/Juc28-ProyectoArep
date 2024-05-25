@@ -36,6 +36,10 @@ académica más adecuada para su futuro.
   ~~~
   ![imagen](https://github.com/Juc28/ProyectoArep/assets/118181224/7fb80b41-6758-4d2d-bcae-4a77105d4e73)
 
+- Desde AWS:
+  
+  [Video](https://youtu.be/rv1mUZsZLbY)
+
   
 # Autor 
 Mariana Pulido Morero [MPulidoM](https://github.com/MPulidoM)
